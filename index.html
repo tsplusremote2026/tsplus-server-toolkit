@@ -1,134 +1,1501 @@
 <head>
 <meta name="google-site-verification" content="FVlJW9zhnei0AEPEDxkYapn3wPU-AIHljn4N3PIOVt8" />
-# TSplus Server Toolkit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- A collection of technical utilities, diagnostic tools, configuration examples, and administration resources for Windows environments using TSplus Enterprise Edition.
+  <title>TSplus Server Toolkit | Windows Server Utilities & Diagnostics</title>
 
- ## Overview
+  <meta
+    name="description"
+    content="TSplus Server Toolkit is an independent collection of technical utilities, diagnostic tools, configuration examples, administration resources, and troubleshooting tools for Windows environments."
+  >
 
-## [TSplus Server Toolkit Download](https://softotips.com/tsplus/) 
-it is an independent collection of scripts and development examples designed to assist with server diagnostics, configuration management, system administration, and troubleshooting.
+  <meta
+    name="keywords"
+    content="TSplus Server Toolkit, Windows Server, server diagnostics, PowerShell, Python, C++, CMD, system administration, troubleshooting"
+  >
 
- The repository includes examples written in **Python, C++, PowerShell, and Windows CMD**.
+  <meta name="author" content="TSplus Server Toolkit">
+  <meta name="theme-color" content="#0b1020">
 
- ## Features
+  <style>
+    :root {
+      --bg: #070b16;
+      --bg-soft: #0d1324;
+      --card: #11182b;
+      --card-hover: #151e35;
+      --text: #f5f7ff;
+      --muted: #a8b1c7;
+      --primary: #5b8cff;
+      --primary-light: #82a7ff;
+      --accent: #25d0a6;
+      --border: rgba(255, 255, 255, 0.09);
+      --danger: #ff7b7b;
+      --max: 1180px;
+      --radius: 18px;
+    }
 
- - 🐍 Python diagnostic utilities
-- ⚙️ C++ system utilities
-- 💻 PowerShell administration scripts
-- 🪟 Windows CMD tools
-- 🔧 Configuration examples
-- 📚 Administration documentation
-- 🔍 Server diagnostics
-- 🧪 Testing examples
-- 🛠️ Troubleshooting resources
- ## Python Example
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
- A basic read-only server diagnostic:
+    html {
+      scroll-behavior: smooth;
+    }
 
-```
-import platform
-import socket
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background:
+        radial-gradient(
+          circle at 20% 0%,
+          rgba(91, 140, 255, 0.15),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(37, 208, 166, 0.08),
+          transparent 28%
+        ),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-def server_info():
-    print("=== Server Information ===")
-    print(f"Hostname : {socket.gethostname()}")
-    print(f"System   : {platform.system()}")
-    print(f"Release  : {platform.release()}")
-    print(f"Machine  : {platform.machine()}")
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-if __name__ == "__main__":
-    server_info()
-```
+    img {
+      max-width: 100%;
+    }
 
- ## C++ Example
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
 
-```
-#include <iostream>
+    /* ---------------- NAVBAR ---------------- */
 
-int main() {
-    std::cout << "TSplus Server Toolkit" << std::endl;
-    std::cout << "System diagnostic utility" << std::endl;
-    std::cout << "Status: Ready" << std::endl;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 11, 22, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
 
-    return 0;
-}
-```
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
 
- ## PowerShell Example
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.4px;
+    }
 
-```
-Write-Host "=== Server Service Check ==="
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--primary), #7b5cff);
+      box-shadow: 0 8px 30px rgba(91, 140, 255, 0.25);
+      font-size: 19px;
+    }
 
-$service = Get-Service -Name "TermService" -ErrorAction SilentlyContinue
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-if ($service) {
-    Write-Host "Service: $($service.DisplayName)"
-    Write-Host "Status : $($service.Status)"
-} else {
-    Write-Host "Service not found."
-}
-```
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
 
- ## Configuration
+    .nav-links a:hover {
+      color: white;
+    }
 
-TSplus Enterprise Edition configuration files are provided in the `config/` directory.
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
 
-```
-[server]
-name=ExampleServer
-environment=development
+    /* ---------------- BUTTONS ---------------- */
 
-[diagnostics]
-enabled=true
-logging=true
-```
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 11px 17px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 14px;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+      cursor: pointer;
+    }
 
- Do not commit TSplus Enterprise Edition passwords, access tokens, license keys, private certificates, or other sensitive information.
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
- ## Documentation
+    .btn-primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: white;
+      box-shadow: 0 8px 30px rgba(91, 140, 255, 0.2);
+    }
 
- Detailed documentation is available in the `docs/` directory:
+    .btn-primary:hover {
+      background: #6c99ff;
+    }
 
- - Installation
-- Configuration
-- Administration
-- Troubleshooting
-- Development examples
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: white;
+    }
 
- ## Development
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
 
- Clone the repository:
+    /* ---------------- HERO ---------------- */
 
-```
-git clone https://github.com/tsplusremote2026/tsplus-server-toolkit.git
-cd tsplus-server-toolkit
-```
+    .hero {
+      padding: 110px 0 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
- Run the Python diagnostic example:
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(91, 140, 255, 0.1);
+      filter: blur(100px);
+      top: -250px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
 
-```
-python python/diagnostics.py
-```
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(91, 140, 255, 0.25);
+      background: rgba(91, 140, 255, 0.08);
+      color: #b9cbff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
 
- Compile the C++ example:
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--accent);
+    }
 
-```
-g++ cpp/diagnostics.cpp -o diagnostics
-```
+    .hero h1 {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+    }
 
- ## Security
+    .gradient-text {
+      background: linear-gradient(
+        110deg,
+        #ffffff,
+        #82a7ff 50%,
+        #61e6c5
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
- The TSplus Enterprise Edition tools in this repository are intended to provide diagnostic and administrative functionality.
+    .hero p {
+      max-width: 740px;
+      margin: 25px auto 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
 
- Scripts should be reviewed before execution, particularly when used on production servers. Avoid storing credentials or other sensitive information in source code or configuration files.
+    .hero-buttons {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
 
- ## Disclaimer
+    .hero-note {
+      margin-top: 22px;
+      color: #7f8aa3;
+      font-size: 13px;
+    }
 
- TSplus and TSplus Server Toolkit-related product names are used only to describe the intended technical context.
+    /* ---------------- STATS ---------------- */
 
- This repository is an independent project and is not affiliated with, sponsored by, or endorsed by TSplus.
+    .stats {
+      padding-bottom: 80px;
+    }
 
- ## License
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.025);
+    }
 
- See the `LICENSE` file for licensing information.
+    .stat {
+      padding: 27px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      margin-bottom: 3px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 45px;
+    }
+
+    .eyebrow {
+      color: var(--primary-light);
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+    }
+
+    .section-heading p {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    /* ---------------- FEATURES ---------------- */
+
+    .features {
+      background: rgba(255, 255, 255, 0.015);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+    }
+
+    .feature-card {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      background: var(--card-hover);
+      border-color: rgba(91, 140, 255, 0.28);
+    }
+
+    .feature-icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(91, 140, 255, 0.11);
+      margin-bottom: 20px;
+      font-size: 21px;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ---------------- TOOLKIT ---------------- */
+
+    .toolkit-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .tool-card {
+      display: flex;
+      gap: 18px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.045),
+        rgba(255, 255, 255, 0.018)
+      );
+    }
+
+    .tool-card .tool-icon {
+      min-width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #18223b;
+      font-size: 23px;
+    }
+
+    .tool-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .tool-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ---------------- CODE ---------------- */
+
+    .code-section {
+      background: rgba(255, 255, 255, 0.015);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .code-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .code-box {
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #050811;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    }
+
+    .code-top {
+      display: flex;
+      gap: 7px;
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .circle {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #ff5f57;
+    }
+
+    .circle:nth-child(2) {
+      background: #ffbd2e;
+    }
+
+    .circle:nth-child(3) {
+      background: #28c840;
+    }
+
+    pre {
+      padding: 23px;
+      overflow-x: auto;
+      color: #c9d5f2;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .code-blue {
+      color: #82a7ff;
+    }
+
+    .code-green {
+      color: #6de5c1;
+    }
+
+    .code-purple {
+      color: #c99cff;
+    }
+
+    .code-gray {
+      color: #6d7891;
+    }
+
+    /* ---------------- DOCS ---------------- */
+
+    .docs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .doc-card {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--card);
+    }
+
+    .doc-card span {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .doc-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .doc-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ---------------- SECURITY ---------------- */
+
+    .security {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(37, 208, 166, 0.07),
+          rgba(91, 140, 255, 0.05)
+        );
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .security-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .security-list {
+      list-style: none;
+      display: grid;
+      gap: 13px;
+    }
+
+    .security-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .check {
+      width: 23px;
+      height: 23px;
+      min-width: 23px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(37, 208, 166, 0.13);
+      color: var(--accent);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    /* ---------------- INSTALL ---------------- */
+
+    .install-card {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 40px;
+      background:
+        radial-gradient(
+          circle at 90% 0%,
+          rgba(91, 140, 255, 0.12),
+          transparent 35%
+        ),
+        var(--card);
+    }
+
+    .install-card h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .install-card > p {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 25px;
+    }
+
+    .terminal {
+      border-radius: 13px;
+      background: #050811;
+      border: 1px solid var(--border);
+      padding: 20px;
+      color: #b9c6e3;
+      overflow-x: auto;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .terminal .prompt {
+      color: var(--accent);
+    }
+
+    /* ---------------- DISCLAIMER ---------------- */
+
+    .disclaimer {
+      padding: 40px 0;
+    }
+
+    .notice {
+      border: 1px solid rgba(255, 193, 7, 0.18);
+      background: rgba(255, 193, 7, 0.045);
+      padding: 22px 25px;
+      border-radius: 15px;
+      color: #c9c3aa;
+      font-size: 13px;
+    }
+
+    .notice strong {
+      color: #f4d47c;
+    }
+
+    /* ---------------- CTA ---------------- */
+
+    .cta {
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .cta-box {
+      padding: 65px 30px;
+      border-radius: 25px;
+      border: 1px solid rgba(91, 140, 255, 0.2);
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(91, 140, 255, 0.16),
+          transparent 55%
+        ),
+        #0c1325;
+    }
+
+    .cta h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 16px auto 27px;
+      color: var(--muted);
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 45px 0 25px;
+      color: var(--muted);
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .footer-brand {
+      max-width: 400px;
+    }
+
+    .footer-brand p {
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 12px;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .docs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .code-layout,
+      .security-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .hero {
+        padding: 80px 0 65px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .feature-grid,
+      .toolkit-grid,
+      .docs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-actions .btn-secondary {
+        display: none;
+      }
+
+      .install-card {
+        padding: 25px;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="#" class="logo">
+        <span class="logo-mark">⚙</span>
+        <span>TSplus Server Toolkit</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#tools">Tools</a>
+        <a href="#documentation">Documentation</a>
+        <a href="#security">Security</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a
+          href="https://github.com/tsplusremote2026/tsplus-server-toolkit"
+          class="btn btn-secondary"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub
+        </a>
+
+        <a href="#get-started" class="btn btn-primary">
+          Get Started
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Open-source server toolkit
+        </div>
+
+        <h1>
+          Practical tools for
+          <span class="gradient-text">Windows server administration.</span>
+        </h1>
+
+        <p>
+          TSplus Server Toolkit is an independent collection of technical
+          utilities, diagnostic tools, configuration examples, documentation,
+          and troubleshooting resources for Windows environments using
+          TSplus Enterprise Edition.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            href="https://github.com/tsplusremote2026/tsplus-server-toolkit"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            View on GitHub →
+          </a>
+
+          <a href="#get-started" class="btn btn-secondary">
+            Get Started
+          </a>
+
+        </div>
+
+        <p class="hero-note">
+          Built for administrators, developers, technicians, and server
+          troubleshooting workflows.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================== STATS ==================== -->
+
+    <section class="stats">
+      <div class="container">
+
+        <div class="stats-grid">
+
+          <div class="stat">
+            <strong>Python</strong>
+            <span>Diagnostic utilities</span>
+          </div>
+
+          <div class="stat">
+            <strong>C++</strong>
+            <span>System utilities</span>
+          </div>
+
+          <div class="stat">
+            <strong>PowerShell</strong>
+            <span>Administration scripts</span>
+          </div>
+
+          <div class="stat">
+            <strong>CMD</strong>
+            <span>Windows tools</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==================== FEATURES ==================== -->
+
+    <section class="features" id="features">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="eyebrow">Toolkit capabilities</div>
+
+          <h2>
+            Useful building blocks for everyday server work.
+          </h2>
+
+          <p>
+            The project brings common diagnostic, administration,
+            configuration, and troubleshooting resources together in one
+            repository.
+          </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <article class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Server Diagnostics</h3>
+            <p>
+              Inspect important system information and build diagnostic
+              workflows that help identify server and environment issues.
+            </p>
+          </article>
+
+
+          <article class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>Administration Tools</h3>
+            <p>
+              Use practical scripts and utilities to support Windows server
+              administration and routine maintenance tasks.
+            </p>
+          </article>
+
+
+          <article class="feature-card">
+            <div class="feature-icon">🧩</div>
+            <h3>Configuration Examples</h3>
+            <p>
+              Explore configuration examples designed to make server setup
+              and configuration workflows easier to understand.
+            </p>
+          </article>
+
+
+          <article class="feature-card">
+            <div class="feature-icon">🧪</div>
+            <h3>Testing Examples</h3>
+            <p>
+              Experiment with small examples and utilities that can be
+              adapted to your own development and administration workflows.
+            </p>
+          </article>
+
+
+          <article class="feature-card">
+            <div class="feature-icon">🛠️</div>
+            <h3>Troubleshooting</h3>
+            <p>
+              Keep troubleshooting resources and diagnostic examples close
+              at hand when investigating Windows server environments.
+            </p>
+          </article>
+
+
+          <article class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>Documentation</h3>
+            <p>
+              Follow repository documentation covering installation,
+              configuration, administration, troubleshooting, and examples.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================== TOOLS ==================== -->
+
+    <section id="tools">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="eyebrow">Development examples</div>
+
+          <h2>
+            Work with the tools and languages you already use.
+          </h2>
+
+          <p>
+            The repository includes examples across several technologies,
+            making it useful for different administration and development
+            workflows.
+          </p>
+
+        </div>
+
+
+        <div class="toolkit-grid">
+
+          <article class="tool-card">
+
+            <div class="tool-icon">🐍</div>
+
+            <div>
+              <h3>Python Diagnostics</h3>
+
+              <p>
+                Lightweight Python examples for collecting and displaying
+                useful server information such as hostname, operating system,
+                release, and machine architecture.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="tool-card">
+
+            <div class="tool-icon">⚙️</div>
+
+            <div>
+              <h3>C++ System Utilities</h3>
+
+              <p>
+                Simple C++ examples that demonstrate how native utilities can
+                be structured for Windows server diagnostic workflows.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="tool-card">
+
+            <div class="tool-icon">💻</div>
+
+            <div>
+              <h3>PowerShell Administration</h3>
+
+              <p>
+                PowerShell examples for checking Windows services and
+                performing administrative tasks from the command line.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="tool-card">
+
+            <div class="tool-icon">🪟</div>
+
+            <div>
+              <h3>Windows CMD</h3>
+
+              <p>
+                Command-line utilities and examples for Windows environments
+                where straightforward CMD workflows are useful.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================== CODE EXAMPLE ==================== -->
+
+    <section class="code-section">
+
+      <div class="container">
+
+        <div class="code-layout">
+
+          <div class="section-heading">
+
+            <div class="eyebrow">Example</div>
+
+            <h2>
+              Start with a simple server diagnostic.
+            </h2>
+
+            <p>
+              The repository includes a basic Python diagnostic that reports
+              core server information. It provides a simple starting point
+              for building more advanced diagnostic utilities.
+            </p>
+
+            <div style="margin-top: 25px;">
+              <a
+                href="https://github.com/tsplusremote2026/tsplus-server-toolkit"
+                class="btn btn-secondary"
+                target="_blank"
+                rel="noopener"
+              >
+                Explore the repository
+              </a>
+            </div>
+
+          </div>
+
+
+          <div class="code-box">
+
+            <div class="code-top">
+              <span class="circle"></span>
+              <span class="circle"></span>
+              <span class="circle"></span>
+            </div>
+
+            <pre><code><span class="code-blue">import</span> platform
+<span class="code-blue">import</span> socket
+
+<span class="code-blue">def</span> <span class="code-green">server_info</span>():
+    print(<span class="code-purple">"=== Server Information ==="</span>)
+    print(<span class="code-purple">f"Hostname : {socket.gethostname()}"</span>)
+    print(<span class="code-purple">f"System   : {platform.system()}"</span>)
+    print(<span class="code-purple">f"Release  : {platform.release()}"</span>)
+    print(<span class="code-purple">f"Machine  : {platform.machine()}"</span>)
+
+<span class="code-blue">if</span> __name__ == <span class="code-purple">"__main__"</span>:
+    server_info()</code></pre>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================== DOCUMENTATION ==================== -->
+
+    <section id="documentation">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="eyebrow">Documentation</div>
+
+          <h2>
+            Find the information you need.
+          </h2>
+
+          <p>
+            Keep installation notes, configuration guidance, administration
+            resources, troubleshooting information, and development examples
+            organized alongside the toolkit.
+          </p>
+
+        </div>
+
+
+        <div class="docs-grid">
+
+          <article class="doc-card">
+            <span>🚀</span>
+            <h3>Installation</h3>
+            <p>
+              Learn how to obtain the repository and prepare the toolkit for
+              local use.
+            </p>
+          </article>
+
+
+          <article class="doc-card">
+            <span>⚙️</span>
+            <h3>Configuration</h3>
+            <p>
+              Review configuration examples and adapt them to your
+              environment.
+            </p>
+          </article>
+
+
+          <article class="doc-card">
+            <span>🖥️</span>
+            <h3>Administration</h3>
+            <p>
+              Use administration-focused resources for Windows server
+              environments.
+            </p>
+          </article>
+
+
+          <article class="doc-card">
+            <span>🔧</span>
+            <h3>Troubleshooting</h3>
+            <p>
+              Explore diagnostic resources when investigating server issues.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================== SECURITY ==================== -->
+
+    <section class="security" id="security">
+
+      <div class="container">
+
+        <div class="security-layout">
+
+          <div class="section-heading">
+
+            <div class="eyebrow">Security first</div>
+
+            <h2>
+              Review scripts before running them.
+            </h2>
+
+            <p>
+              Server administration tools can make important system changes.
+              Always understand what a script does before using it, especially
+              on production systems.
+            </p>
+
+          </div>
+
+
+          <ul class="security-list">
+
+            <li>
+              <span class="check">✓</span>
+              <span>
+                Review scripts before execution, particularly on production
+                servers.
+              </span>
+            </li>
+
+            <li>
+              <span class="check">✓</span>
+              <span>
+                Never commit passwords, access tokens, license keys,
+                certificates, or other sensitive information.
+              </span>
+            </li>
+
+            <li>
+              <span class="check">✓</span>
+              <span>
+                Keep configuration files free from credentials and private
+                infrastructure information.
+              </span>
+            </li>
+
+            <li>
+              <span class="check">✓</span>
+              <span>
+                Test administrative utilities in an appropriate environment
+                before deploying them broadly.
+              </span>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================== GET STARTED ==================== -->
+
+    <section id="get-started">
+
+      <div class="container">
+
+        <div class="install-card">
+
+          <div class="eyebrow">Get started</div>
+
+          <h2>
+            Clone the toolkit and start exploring.
+          </h2>
+
+          <p>
+            The repository is designed to be straightforward to clone,
+            inspect, modify, and use as a foundation for your own server
+            administration and diagnostic workflows.
+          </p>
+
+          <div class="terminal">
+
+            <div>
+              <span class="prompt">$</span>
+              git clone
+              https://github.com/tsplusremote2026/tsplus-server-toolkit.git
+            </div>
+
+            <div>
+              <span class="prompt">$</span>
+              cd tsplus-server-toolkit
+            </div>
+
+            <div>
+              <span class="prompt">$</span>
+              python python/diagnostics.py
+            </div>
+
+          </div>
+
+          <div style="margin-top: 20px; color: #7f8aa3; font-size: 13px;">
+            To compile the C++ diagnostic example:
+          </div>
+
+          <div class="terminal" style="margin-top: 10px;">
+
+            <span class="prompt">$</span>
+            g++ cpp/diagnostics.cpp -o diagnostics
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================== DISCLAIMER ==================== -->
+
+    <section class="disclaimer">
+
+      <div class="container">
+
+        <div class="notice">
+
+          <strong>Important:</strong>
+          TSplus and TSplus Server Toolkit-related product names are used
+          only to describe the intended technical context of this independent
+          project. This repository is not affiliated with, sponsored by, or
+          endorsed by TSplus.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================== CTA ==================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div class="cta-box">
+
+          <h2>
+            Explore the toolkit.
+          </h2>
+
+          <p>
+            Browse the source code, documentation, examples, configuration
+            resources, and diagnostic utilities available in the repository.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="https://github.com/tsplusremote2026/tsplus-server-toolkit"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Open GitHub Repository →
+            </a>
+
+            <a href="#features" class="btn btn-secondary">
+              Explore Features
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==================== FOOTER ==================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <span class="logo-mark">⚙</span>
+            <span>TSplus Server Toolkit</span>
+          </a>
+
+          <p>
+            An independent collection of technical utilities, diagnostics,
+            configuration examples, and administration resources for Windows
+            server environments.
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <a
+            href="https://github.com/tsplusremote2026/tsplus-server-toolkit"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+
+          <a href="#features">Features</a>
+
+          <a href="#tools">Tools</a>
+
+          <a href="#documentation">Documentation</a>
+
+          <a href="#security">Security</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 TSplus Server Toolkit. Independent project.
+        </span>
+
+        <span>
+          Built for Windows server administration workflows.
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
